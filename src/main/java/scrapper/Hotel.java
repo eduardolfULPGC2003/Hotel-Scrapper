@@ -19,7 +19,6 @@ public class Hotel {
         this.reviews = reviews;
     }
 
-
     public Integer getId() {
         return id;
     }
