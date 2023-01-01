@@ -16,10 +16,11 @@ public class Controller {
         // TODO
     }
 
-    public Hotel scrap(String bookingName) throws IOException {
+    public Hotel scrap(String bookingName) throws IOException, HotelNotFoundException {
         HotelScrapper scrapper = new BookingHotelScrapper(bookingName);
         String url = "https://www.booking.com/hotel/es/" + bookingName + ".es.html";
         String hotelName = scrapper.scrapName();
+        if (hotelName.length()==0) throw new HotelNotFoundException("Hotel not found");
         String mark = scrapper.scrapMark();
         String accommodation = scrapper.scrapAccommodation();;
         String location = scrapper.scrapLocation();
@@ -39,22 +40,22 @@ public class Controller {
         return resources;
     }
 
-    public HotelInfo getHotelInfo(String name) throws IOException {
+    public HotelInfo getHotelInfo(String name) throws IOException, HotelNotFoundException {
         for (Hotel hotel: hotels){if (hotel.getBookingName().equals(name)) return hotel.getHotelInfo();}
         return scrap(name).getHotelInfo();
     }
 
-    public Map<String, String[]> getHotelServices(String name) throws IOException {
+    public Map<String, String[]> getHotelServices(String name) throws IOException, HotelNotFoundException {
         for (Hotel hotel: hotels){if (hotel.getBookingName().equals(name)) return hotel.getServices();}
         return scrap(name).getServices();
     }
 
-    public List<Review> getHotelComments(String name) throws IOException {
+    public List<Review> getHotelComments(String name) throws IOException, HotelNotFoundException {
         for (Hotel hotel: hotels){if (hotel.getBookingName().equals(name)) return hotel.getReviews();}
         return scrap(name).getReviews();
     }
 
-    public Map<String, String> getHotelRatings(String name) throws IOException {
+    public Map<String, String> getHotelRatings(String name) throws IOException, HotelNotFoundException {
         for (Hotel hotel: hotels){if (hotel.getBookingName() == name) return hotel.getCategories();}
         return scrap(name).getCategories();
     }

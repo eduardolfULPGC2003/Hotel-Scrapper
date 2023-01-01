@@ -34,8 +34,8 @@ public class SparkWebService {
         try {
             Map<String, String> ratings = controller.getHotelRatings(name);
             return toJson(ratings);
-        } catch (IOException e) {
-            halt(400, "Hotel not found");
+        } catch (IOException | HotelNotFoundException e) {
+            halt(400, String.valueOf(e));
         }
         return "";
     }
@@ -45,8 +45,8 @@ public class SparkWebService {
         try {
             List<Review> comments = controller.getHotelComments(name);
             return toJson(comments);
-        } catch (IOException e) {
-            halt(400, "Hotel not found");
+        } catch (IOException | HotelNotFoundException e) {
+            halt(400, String.valueOf(e));
         }
         return "";
     }
@@ -56,8 +56,8 @@ public class SparkWebService {
         try {
             Map<String, String[]> services = controller.getHotelServices(name);
             return toJson(services);
-        } catch (IOException e) {
-            halt(400, "Hotel not found");
+        } catch (IOException | HotelNotFoundException e) {
+            halt(400, String.valueOf(e));
         }
         return "";
     }
@@ -67,8 +67,8 @@ public class SparkWebService {
         try {
             HotelInfo info = controller.getHotelInfo(name);
             return toJson(info);
-        } catch (IOException e) {
-            halt(400, "Hotel not found");
+        } catch (IOException | HotelNotFoundException e) {
+            halt(400, String.valueOf(e));
         }
         return "";
     }
