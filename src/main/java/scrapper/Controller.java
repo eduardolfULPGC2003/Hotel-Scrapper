@@ -22,7 +22,7 @@ public class Controller {
         String hotelName = scrapper.scrapName();
         if (hotelName.length()==0) throw new HotelNotFoundException("Hotel not found");
         String mark = scrapper.scrapMark();
-        String accommodation = scrapper.scrapAccommodation();;
+        String accommodation = scrapper.scrapAccommodation();
         String location = scrapper.scrapLocation();
         String[] categories = scrapper.scrapCategories();
         String[] categoriesMark = scrapper.scrapCategoriesMark();
@@ -56,7 +56,7 @@ public class Controller {
     }
 
     public Map<String, String> getHotelRatings(String name) throws IOException, HotelNotFoundException {
-        for (Hotel hotel: hotels){if (hotel.getBookingName() == name) return hotel.getCategories();}
+        for (Hotel hotel: hotels){if (hotel.getBookingName().equals(name)) return hotel.getCategories();}
         return scrap(name).getCategories();
     }
 }

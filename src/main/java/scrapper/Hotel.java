@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Hotel {
     private static Integer nextId = 1;
-    private Integer id;
+    private final Integer id;
     private String bookingName;
     private HotelInfo hotelInfo;
     private Map<String, String> categories;
@@ -19,13 +19,6 @@ public class Hotel {
         this.categories = categories;
         this.services = services;
         this.reviews = reviews;
-    }
-
-    public Hotel() {
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public Map<String, String> getCategories() {
@@ -46,5 +39,29 @@ public class Hotel {
 
     public HotelInfo getHotelInfo() {
         return hotelInfo;
+    }
+
+    public static void setNextId(Integer nextId) {
+        Hotel.nextId = nextId;
+    }
+
+    public void setBookingName(String bookingName) {
+        this.bookingName = bookingName;
+    }
+
+    public void setHotelInfo(HotelInfo hotelInfo) {
+        this.hotelInfo = hotelInfo;
+    }
+
+    public void setCategories(Map<String, String> categories) {
+        this.categories = categories;
+    }
+
+    public void setServices(Map<String, String[]> services) {
+        this.services = services;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }

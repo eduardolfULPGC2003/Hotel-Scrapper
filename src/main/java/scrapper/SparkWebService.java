@@ -14,7 +14,7 @@ import static spark.Spark.get;
 import static spark.Spark.halt;
 
 public class SparkWebService {
-    private Controller controller;
+    private final Controller controller;
 
     public SparkWebService(Controller controller) {
         this.controller = controller;
@@ -22,11 +22,11 @@ public class SparkWebService {
 
     public void start(){
         Spark.port(4567);
-        get("/v1/hotels", (req, res) -> getResources(req, res));
-        get("/v1/hotels/:name", (req, res) -> getHotelInfo(req, res));
-        get("/v1/hotels/:name/services", (req, res) -> getHotelServices(req, res));
-        get("/v1/hotels/:name/comments", (req, res) -> getHotelComments(req, res));
-        get("/v1/hotels/:name/ratings", (req, res) -> getHotelRatings(req, res));
+        get("/v1/hotels", this::getResources);
+        get("/v1/hotels/:name", this::getHotelInfo);
+        get("/v1/hotels/:name/services", this::getHotelServices);
+        get("/v1/hotels/:name/comments", this::getHotelComments);
+        get("/v1/hotels/:name/ratings", this::getHotelRatings);
     }
 
     private String getHotelRatings(Request req, Response res) {
