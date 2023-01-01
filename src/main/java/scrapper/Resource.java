@@ -4,12 +4,12 @@ public class Resource {
     private String name;
     private String apiUrl;
 
-    public Resource(String name, String apiUrl) {
-        this.name = name;
-        this.apiUrl = apiUrl;
+    public Resource(String hotelName, String bookingName) {
+        this.name = hotelName;
+        this.apiUrl = "v1/hotels/" + bookingName;
     }
 
-    public String getName() {
+    public String getBookingName() {
         return name;
     }
 
