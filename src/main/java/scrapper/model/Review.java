@@ -1,4 +1,4 @@
-package scrapper;
+package scrapper.model;
 
 public class Review {
     private final String mark;

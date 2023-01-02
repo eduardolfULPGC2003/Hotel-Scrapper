@@ -3,6 +3,7 @@ package scrapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import scrapper.model.Review;
 
 import java.io.IOException;
 import java.util.ArrayList;

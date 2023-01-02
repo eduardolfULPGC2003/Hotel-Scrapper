@@ -1,5 +1,10 @@
 package scrapper;
 
+import scrapper.model.Hotel;
+import scrapper.model.HotelInfo;
+import scrapper.model.Resource;
+import scrapper.model.Review;
+
 import java.io.IOException;
 import java.util.*;
 

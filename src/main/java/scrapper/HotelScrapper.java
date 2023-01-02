@@ -1,5 +1,7 @@
 package scrapper;
 
+import scrapper.model.Review;
+
 import java.util.List;
 import java.util.Map;
 

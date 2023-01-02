@@ -2,6 +2,9 @@ package scrapper;
 
 
 import com.google.gson.Gson;
+import scrapper.model.HotelInfo;
+import scrapper.model.Resource;
+import scrapper.model.Review;
 import spark.Request;
 import spark.Response;
 import spark.Spark;
