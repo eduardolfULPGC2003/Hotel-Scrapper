@@ -21,7 +21,7 @@ public class Controller {
         // TODO
     }
 
-    public Hotel scrap(String bookingName) throws IOException, HotelNotFoundException {
+    private Hotel scrap(String bookingName) throws IOException, HotelNotFoundException {
         HotelScrapper scrapper = new BookingHotelScrapper(bookingName);
         String url = "https://www.booking.com/hotel/es/" + bookingName + ".es.html";
         String hotelName = scrapper.scrapName();
